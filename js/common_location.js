@@ -5,7 +5,7 @@ function set_side_area_chien() {
 	let now = Date.now() >>> 10;
 	// エリア名を取得
 	$.when(
-		$.getJSON("https://api.allorigins.win/raw?url=https://www3.jrhokkaido.co.jp/trainlocation/json/rosen/now/rosen_now.json?" + now)
+		$.getJSON("http://34.46.208.100:8080/proxy?url=https://www3.jrhokkaido.co.jp/trainlocation/json/rosen/now/rosen_now.json?" + now)
 	)
 	.done(function(nowdata) {
 		// 現在日付表示
@@ -68,9 +68,9 @@ function createSideExpressList(onLabelClickEvent) {
 	const trnNow = Date.now() >>> 10;
 	// 特急列車に関する情報を読み込んで、特急列車リストを描画する。
 	$.when(
-		$.getJSON("https://corsproxy.io/?https://www3.jrhokkaido.co.jp/webunkou/json/master/express_master.json?" + mstNow),
-		$.getJSON("https://corsproxy.io/?https://www3.jrhokkaido.co.jp/trainlocation/json/express/core/express_core.json?" + mstNow),
-		$.getJSON("https://api.allorigins.win/raw?url=https://www3.jrhokkaido.co.jp/trainlocation/json/express/now/express_now.json?" + trnNow)
+		$.getJSON("http://34.46.208.100:8080/proxy?url=https://www3.jrhokkaido.co.jp/webunkou/json/master/express_master.json?" + mstNow),
+		$.getJSON("http://34.46.208.100:8080/proxy?url=https://www3.jrhokkaido.co.jp/trainlocation/json/express/core/express_core.json?" + mstNow),
+		$.getJSON("http://34.46.208.100:8080/proxy?url=https://www3.jrhokkaido.co.jp/trainlocation/json/express/now/express_now.json?" + trnNow)
 	)
 	.done((expressMasterBase, coreDataBase, nowDataBase) => {
 		const expressMaster = expressMasterBase[0];
